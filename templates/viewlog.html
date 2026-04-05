@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <tr style="background-color: #f0f0f0;">
+        {% for title in the_row_titles %}
+        <th>{{ title }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for row in the_data %}
+    <tr>
+        {% for item in row %}
+        <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

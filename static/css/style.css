@@ -1,0 +1,168 @@
+/* ===== 1. Общие сбросы и базовые стили ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ===== 2. Общие стили для контейнера ===== */
+.container {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    padding: 2rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* ===== 3. Общая типографика и элементы (будут наследоваться обеими страницами) ===== */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* ===== 4. Стили для страницы поиска (page-search) ===== */
+.page-search .container {
+    max-width: 600px;          /* для формы уже, чем для результатов */
+}
+
+.page-search form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.page-search table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.page-search td {
+    padding: 8px 0;
+}
+
+.page-search td:first-child {
+    font-weight: 600;
+    width: 30%;
+}
+
+.page-search input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.page-search input[type="text"]:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+}
+
+.page-search input[type="submit"] {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.page-search input[type="submit"]:hover {
+    background: #357abd;
+}
+
+/* ===== 5. Стили для страницы результатов (page-results) ===== */
+.page-results .container {
+    max-width: 800px;          /* шире, чтобы вместить таблицу и результат */
+}
+
+.page-results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: #f9f9fc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.page-results td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.page-results td:first-child {
+    font-weight: 600;
+    background: #f0f2f5;
+    width: 30%;
+}
+
+.page-results td:last-child {
+    font-family: monospace;
+    color: #1e466e;
+}
+
+.page-results tr:last-child td {
+    border-bottom: none;
+}
+
+.page-results h3 {
+    background: #e8f0fe;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #4a90e2;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #1e466e;
+    margin: 1.5rem 0;
+    word-break: break-word;
+}
+
+/* ===== 6. Адаптивность (медиазапросы) ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    .page-search .container,
+    .page-results .container {
+        max-width: 100%;
+    }
+    .page-results table,
+    .page-results tbody,
+    .page-results tr,
+    .page-results td {
+        display: block;
+        width: 100%;
+    }
+    .page-results td:first-child {
+        width: auto;
+        background: #e9ecef;
+    }
+    .page-results td:last-child {
+        margin-bottom: 8px;
+    }
+}
